@@ -15,6 +15,9 @@ export class Trade {
   @Column()
   quantity: number;
 
+  @Column()
+  tradeAt: string;
+
   @ManyToOne(() => Stock, (stock) => stock.trades)
   stock: Stock;
 }
