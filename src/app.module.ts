@@ -7,6 +7,7 @@ import { Stock } from './stock/stock.entity';
 import { Trade } from './trade/trade.entity';
 import { StockModule } from './stock/stock.module';
 import { TradeModule } from './trade/trade.module';
+import { CurrencyModule } from './currency/currency.module';
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { TradeModule } from './trade/trade.module';
     }),
     StockModule,
     TradeModule,
+    CurrencyModule,
   ],
   controllers: [AppController],
   providers: [AppService],
