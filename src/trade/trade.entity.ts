@@ -14,7 +14,7 @@ export class Trade {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
+  @Column({ select: false })
   stockId: number;
 
   @Column()
@@ -26,7 +26,7 @@ export class Trade {
   @Column()
   tradeAt: string;
 
-  @Column()
+  @Column({ select: false })
   currencyId: number;
 
   @ManyToOne(() => Stock, (stock) => stock.trades)
