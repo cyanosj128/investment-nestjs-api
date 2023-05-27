@@ -12,7 +12,12 @@ export class StockService {
 
   findAll(): Promise<Stock[]> {
     return this.stockRepository.find({
-      relations: ['trades', 'trades.currency'],
+      relations: [
+        'trades',
+        'trades.currency',
+        'dividends',
+        'dividends.currency',
+      ],
     });
   }
 

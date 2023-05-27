@@ -1,3 +1,4 @@
+import { Dividend } from 'src/dividend/dividend.entity';
 import { Trade } from 'src/trade/trade.entity';
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
 
@@ -17,4 +18,7 @@ export class Stock {
 
   @OneToMany(() => Trade, (trade) => trade.stock)
   trades: Trade[];
+
+  @OneToMany(() => Dividend, (dividend) => dividend.stock)
+  dividends: Dividend[];
 }
