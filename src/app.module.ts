@@ -8,13 +8,14 @@ import { Trade } from './trade/trade.entity';
 import { StockModule } from './stock/stock.module';
 import { TradeModule } from './trade/trade.module';
 import { CurrencyModule } from './currency/currency.module';
+import { Currency } from './currency/currency.entity';
 
 @Module({
   imports: [
     TypeOrmModule.forRoot({
       ...typeOrmConfig,
       type: 'mysql',
-      entities: [Stock, Trade],
+      entities: [Stock, Trade, Currency],
       synchronize: false, // false가 안전함
     }),
     StockModule,

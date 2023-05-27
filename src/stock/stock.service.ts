@@ -2,7 +2,6 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { DeleteResult, Repository } from 'typeorm';
 import { Stock } from 'src/stock/stock.entity';
-import { Trade } from 'src/trade/trade.entity';
 
 @Injectable()
 export class StockService {
@@ -12,7 +11,9 @@ export class StockService {
   ) {}
 
   findAll(): Promise<Stock[]> {
-    return this.stockRepository.find({ relations: ['trades'] });
+    return this.stockRepository.find({
+      relations: ['trades', 'trades.currency'],
+    });
   }
 
   findOne(id: number): Promise<Stock> {
